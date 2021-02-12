@@ -1,0 +1,40 @@
+@page
+@model AMTravel.Pages.DestinacijaDodajModel
+@{
+ViewData["Title"]="Nova destinacija";
+}
+
+<div class="text-center">
+    <h2 class="display 4">Nova destinacija</h2>
+</div>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" asp-page="./DestinacijaSve"><i class='fas fa-arrow-circle-left'></i>Prikaži listu destinacija</a></li>
+  </ul>
+</nav>
+
+   @if(SessionClass.TipKorisnika=="A"){
+<form method="post">
+  <input type="hidden" asp-for="@Model.PostojiVec" />
+
+      @if (Model.PostojiVec != null && Model.PostojiVec != 0)
+      {
+        <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Već postoji destinacija sa tim nazivom. <i class="fas fa-exclamation-triangle"></i></div>
+      }
+
+    <div class="dodaj">
+        <div id="formContent">
+        <label class="form-control">Naziv:</label> <input asp-for="NovaDestinacija.Naziv" class="form-control" placeholder="Naziv" required />
+        <label class="form-control">Drzava:</label> <input asp-for="NovaDestinacija.Drzava" class="form-control" placeholder="Drzava" required />
+        <label class="form-control">Opis:</label> <input asp-for="NovaDestinacija.Opis" class="form-control" placeholder="Opis" />
+        <label class="form-control">Dodajte sliku:</label> <input type="file" asp-for="NovaDestinacija.Slika"  placeholder="Slika" required />
+
+        <button type="submit" class="dugme">Dodaj novu destinaciju</button>
+        </div>
+    </div>
+</form>
+}
+ else{
+    <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Nemate pristup ovoj stranici, samo admin može da dodaje znamenitosti. <i class="fas fa-exclamation-triangle"></i></div> 
+    }

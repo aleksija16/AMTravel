@@ -1,0 +1,50 @@
+@page
+@model AMTravel.Pages.DestinacijaSveModel
+@{
+ViewData["Title"]="Destinacije";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Destinacije</h1>
+</div>
+
+
+@if(SessionClass.TipKorisnika=="A")
+{
+<nav aria-label="Page navigation">  
+    <ul class="pagination justify-content-end">
+        <li class="page-item"><a class="page-link" asp-page="./DestinacijaDodaj">Dodaj destinaciju <i class="fas fa-plus-circle"></i></a></li>
+    </ul>
+</nav> 
+}
+
+<form method="post">
+<div class="row">
+@foreach (var destinacija in Model.SveDestinacije) 
+{
+     <div class="column">
+    <div class="flip-card-znamenitosti">
+        <div class="inner-znamenitosti">
+              <div class="front-znamenitosti">
+                @if(@destinacija.Slika!=null)
+                {
+                    <img src="images/@destinacija.Slika" alt="Avatar" style="width:300px;height:200px; border-radius: 50px 20px;  "> 
+                }
+            </div>
+            <div class="back-znamenitosti">
+                    <div class="text-center"><h2>@destinacija.Naziv</h2></div>
+                    <div><a asp-page="./DestinacijaJedna" asp-route-id="@destinacija.Id">Prikaži detalje <i class="fas fa-info-circle"></i></a></div>
+                      @if(SessionClass.TipKorisnika=="A"){
+                    <div><a asp-page="./DestinacijaIzmeni" asp-route-id="@destinacija.Id">Izmeni destinaciju <i class="fas fa-edit"></i></a></div>
+                    <div><a asp-page="./DestinacijaObrisi" asp-route-id="@destinacija.Id">Obriši destinaciju <i class="fas fa-trash-alt"></i></a></div>
+                      }
+            </div>
+        </div>
+    </div>
+    </div> 
+}
+</div>
+</form>
+
+<link href="path/to/select2.min.css" rel="stylesheet" />
+<script src="path/to/select2.min.js"></script>

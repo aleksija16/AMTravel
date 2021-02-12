@@ -1,0 +1,53 @@
+@page
+@model AMTravel.Pages.SmestajSveModel
+@{
+ViewData["Title"]="Smestaji";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Smestaji</h1>
+</div>
+
+
+@if(SessionClass.TipKorisnika=="A")
+{
+<nav aria-label="Page navigation">  
+    <ul class="pagination justify-content-end">
+        <li class="page-item"><a class="page-link" asp-page="./SmestajDodaj">Dodaj smestaj <i class="fas fa-plus-circle"></i></a></li>
+    </ul>
+</nav> 
+}
+
+<form method="post">
+<div class="row">
+@foreach (var smestaj in Model.SviSmestaji) 
+{
+     <div class="column">
+    <div class="flip-card-znamenitosti">
+        <div class="inner-znamenitosti">
+              <div class="front-znamenitosti">
+                @if(@smestaj.Slika!=null)
+                {
+                    <img src="images/@smestaj.Slika" alt="Avatar" style="width:300px;height:200px; border-radius: 50px 20px;  "> 
+                }
+            </div>
+            <div class="back-znamenitosti">
+                    <div class="text-center"><h2>@smestaj.Naziv</h2></div>
+                    <div><a asp-page="./SmestajJedna" asp-route-id="@smestaj.Id">Prikaži detalje <i class="fas fa-info-circle"></i></a></div>
+                      @if(SessionClass.TipKorisnika=="A"){
+                    <div><a asp-page="./SmestajIzmeni" asp-route-id="@smestaj.Id">Izmeni smestaj <i class="fas fa-edit"></i></a></div>
+                    <div><a asp-page="./SmestajObrisi" asp-route-id="@smestaj.Id">Obriši smestaj <i class="fas fa-trash-alt"></i></a></div>
+                    <div>@smestaj.Id</div>
+                    <div><a asp-page="./SobaSve" asp-route-id="@smestaj.Id">Prikazi sobe <i class="fas fa-trash-alt"></i></a></div>
+                     <div><a asp-page="./SobaDodaj" asp-route-id="@smestaj.Id">Dodaj sobe <i class="fas fa-trash-alt"></i></a></div>
+                      }
+            </div>
+        </div>
+    </div>
+    </div> 
+}
+</div>
+</form>
+
+<link href="path/to/select2.min.css" rel="stylesheet" />
+<script src="path/to/select2.min.js"></script>

@@ -1,0 +1,53 @@
+@page
+@model AMTravel.Pages.SobaSveModel
+@{
+ViewData["Title"]="Sobe";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sobe</h1>
+</div>
+
+
+@if(SessionClass.TipKorisnika=="A")
+{
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" asp-page="./SobaDodaj" asp-route-id="@Model.SmestajId"><i class='fas fa-arrow-circle-left'></i>Dodaj</a></li>
+  </ul>
+</nav>
+}
+  <div>@Model.SmestajId</div>
+
+<form method="post">
+<div class="row">
+@foreach (var soba in Model.SveSobe) 
+{
+     <div class="column">
+    <div class="flip-card-znamenitosti">
+        <div class="inner-znamenitosti">
+              <div class="front-znamenitosti">
+                @if(@soba.Slika!=null)
+                {
+                    <img src="images/@soba.Slika" alt="Avatar" style="width:300px;height:200px; border-radius: 50px 20px;  "> 
+                }
+                  
+            </div>
+            <div class="back-znamenitosti">
+                    <div class="text-center"><h2>@soba.BrojSobe</h2></div>
+                    <div><a asp-page="./SobaJedna" asp-route-id="@soba.Id">Prikaži detalje <i class="fas fa-info-circle"></i></a></div>
+                      @if(SessionClass.TipKorisnika=="A"){
+                    <div><a asp-page="./SobaIzmeni" asp-route-id="@soba.Id">Izmeni sobu <i class="fas fa-edit"></i></a></div>
+                    <div><a asp-page="./SobaObrisi" asp-route-id="@soba.Id">Obriši sobu <i class="fas fa-trash-alt"></i></a></div>
+                    <div>@Model.SmestajId</div>
+                      }
+            </div>
+        </div>
+    </div>
+    </div> 
+}
+</div>
+</form>
+
+<link href="path/to/select2.min.css" rel="stylesheet" />
+<script src="path/to/select2.min.js"></script>

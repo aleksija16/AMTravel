@@ -18,6 +18,7 @@ namespace AMTravel.Models
         public string Cena { get; set; }
 
         public int BrojOsoba { get; set; }
+        public string Slika { get; set; }
 
         public MongoDBRef Smestaj { get; set; }
 

@@ -1,0 +1,35 @@
+@page
+@model AMTravel.Pages.SobaDodajModel
+@{
+ViewData["Title"]="Nova soba";
+}
+
+<div class="text-center">
+    <h2 class="display 4">Nova soba @Model.PostojiSmestaj.Id iii @Model.NoviId</h2>
+</div>
+
+@if(SessionClass.TipKorisnika=="A"){
+<form method="post">
+  <input type="hidden" asp-for="@Model.PostojiVec" />
+
+      @if (Model.PostojiVec != null && Model.PostojiVec != 0)
+      {
+        <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Već postoji soba sa tim brojem. <i class="fas fa-exclamation-triangle"></i></div>
+      }
+
+    <div class="dodaj">
+        <div id="formContent">
+        <label class="form-control">Broj sobe:</label> <input asp-for="NovaSoba.BrojSobe" class="form-control" placeholder="Broj sobe" required />
+        <label class="form-control">Cena:</label> <input asp-for="NovaSoba.Cena" class="form-control" placeholder="Cena" required />
+        <label class="form-control">Broj osoba:</label> <input asp-for="NovaSoba.BrojOsoba" class="form-control" placeholder="Broj osoba" />
+        <label class="form-control">Opis:</label> <input asp-for="NovaSoba.Opis" class="form-control" placeholder="Opis" />
+        <label class="form-control">Dodajte sliku:</label> <input type="file" asp-for="NovaSoba.Slika"  placeholder="Slika" required />
+
+        <button type="submit" class="dugme">Dodaj novu sobu</button>
+        </div>
+    </div>
+</form>
+}
+ else{
+    <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Nemate pristup ovoj stranici, samo admin može da dodaje znamenitosti. <i class="fas fa-exclamation-triangle"></i></div> 
+    }

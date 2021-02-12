@@ -16,6 +16,7 @@ namespace AMTravel.Models
         public string Drzava { get; set; }
 
         public string Opis { get; set; }
+        public string Slika { get; set; }
 
         public List<MongoDBRef> Smestaji { get; set; }
 
