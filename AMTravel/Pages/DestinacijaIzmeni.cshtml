@@ -1,0 +1,17 @@
+@page
+@model AMTravel.Pages.DestinacijaIzmeniModel
+@{
+}
+
+
+
+<form method="post">
+    <div class="izmeni">
+        <label class="form-control">Naziv: </label> <textarea asp-for="TrenutnaDestinacija.Naziv"></textarea>
+        <label class="form-control">Drzava:</label> <textarea asp-for="TrenutnaDestinacija.Drzava"></textarea>
+        <label class="form-control">Opis:</label> <textarea asp-for="TrenutnaDestinacija.Opis"></textarea>
+        <input hidden asp-for="TrenutnaDestinacija.Slika" class="form-control" />
+          <input hidden asp-for="TrenutnaDestinacija.Smestaji" class="form-control" />
+        <button type="submit" class="btn-primary">Sačuvaj izmene</button>
+    </div>
+</form>

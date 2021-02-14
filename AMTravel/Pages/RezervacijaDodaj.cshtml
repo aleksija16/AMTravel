@@ -1,0 +1,33 @@
+@page
+@model AMTravel.Pages.RezervacijaDodajModel
+@{
+    ViewData["Title"] = "Rezervisi turu";
+}
+
+
+    <div class="rezervacija fadeInDown">
+        <div id="formContent">
+            <form method="post">
+
+                <label class="form-control select-fit-text">Datum Od:</label>
+                    <input type="date" min="@Model.DanasnjiDatum" asp-for="RezervacijaSobe.DatumOd" class="form-control" placeholder="Datum od"  required/>
+                <label class="form-control select-fit-text">Datum Do:</label>
+                    <input type="date" min="@Model.DanasnjiDatum" asp-for="RezervacijaSobe.DatumDo" class="form-control" placeholder="Datum do"  required/>
+                <div>
+                    <button type="submit" class="dugme">Rezerviši turu</button>
+                </div>
+    
+            </form>
+        </div>
+    </div>
+
+
+
+@if(@Model.NeuspesnaRezervacija==1){
+     <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Datum do ne može biti manji od datuma od. <i class="fas fa-exclamation-triangle"></i></div> 
+}
+@if(@Model.NeuspesnaRezervacija==2)
+{
+       <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Soba je već rezervisana, izaberite drugi datum. <i class="fas fa-exclamation-triangle"></i></div> 
+
+}

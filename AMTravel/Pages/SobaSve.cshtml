@@ -36,9 +36,13 @@ ViewData["Title"]="Sobe";
             <div class="back-znamenitosti">
                     <div class="text-center"><h2>@soba.BrojSobe</h2></div>
                     <div><a asp-page="./SobaJedna" asp-route-id="@soba.Id">Prikaži detalje <i class="fas fa-info-circle"></i></a></div>
-                      @if(SessionClass.TipKorisnika=="A"){
+                    @if(SessionClass.TipKorisnika=="K")
+                    {
+                        <div><a asp-page="./RezervacijaDodaj" asp-route-id="@soba.Id">Rezerviši sobu <i class="far fa-calendar-plus"></i></a></div>
+                     
+                    }
+                    @if(SessionClass.TipKorisnika=="A"){
                     <div><a asp-page="./SobaIzmeni" asp-route-id="@soba.Id">Izmeni sobu <i class="fas fa-edit"></i></a></div>
-                    <div><a asp-page="./SobaObrisi" asp-route-id="@soba.Id">Obriši sobu <i class="fas fa-trash-alt"></i></a></div>
                     <div>@Model.SmestajId</div>
                       }
             </div>

@@ -5,18 +5,16 @@
 
 
 <form method="post">
-  <div class="prijava">
-    <div id="formContent">
-      <input type="text"  placeholder="Korisnicko ime" asp-for="TrenutniKorisnik.Username">
-      <input type="password"  placeholder="Lozinka" asp-for="TrenutniKorisnik.Password">
-      <input type="submit" value="Prijavi se" class="dugme"/>
-      <div class="d-flex justify-content-center links">
-				Nemaš nalog?<a href="/Registracija">Registruj se <i class="far fa-id-badge"></i></a>
-				</div>
-    </div>
+<div class="login-container">
+  <div class="login-form">
+      <input type="text" class="login-input" placeholder="Korisničko ime" asp-for="TrenutniKorisnik.Username" required autofocus/>
+      <input type="password" class="login-input" placeholder="Lozinka" asp-for="TrenutniKorisnik.Password" required/>
+  <div class="submit-container">
+      <input type="submit" value="Prijavi se" class="login-button"/>
   </div>
+  </div>
+ </div>
 </form>
-
 @if (Model.Session == -1)
 {
   <div class="prijava">

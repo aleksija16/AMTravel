@@ -1,0 +1,16 @@
+@page
+@model AMTravel.Pages.SmestajIzmeniModel
+@{
+}
+
+
+
+<form method="post">
+    <div class="izmeni">
+        <label class="form-control">Naziv: </label> <textarea asp-for="TrenutniSmestaj.Naziv"></textarea>
+        <label class="form-control">Adresa:</label> <textarea asp-for="TrenutniSmestaj.Adresa"></textarea>
+        <label class="form-control">Opis:</label> <textarea asp-for="TrenutniSmestaj.Opis"></textarea>
+        <label class="form-control">Tip:</label> <textarea asp-for="TrenutniSmestaj.Tip"></textarea>
+        <button type="submit" class="btn-primary">Sačuvaj izmene</button>
+    </div>
+</form>

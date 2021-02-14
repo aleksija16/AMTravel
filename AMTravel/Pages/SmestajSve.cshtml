@@ -33,12 +33,13 @@ ViewData["Title"]="Smestaji";
             </div>
             <div class="back-znamenitosti">
                     <div class="text-center"><h2>@smestaj.Naziv</h2></div>
-                    <div><a asp-page="./SmestajJedna" asp-route-id="@smestaj.Id">Prikaži detalje <i class="fas fa-info-circle"></i></a></div>
-                      @if(SessionClass.TipKorisnika=="A"){
+                    <div><a asp-page="./SmestajJedan" asp-route-id="@smestaj.Id">Prikaži detalje <i class="fas fa-info-circle"></i></a></div>
+                    <div><a asp-page="./SobaSve" asp-route-id="@smestaj.Id">Prikazi sobe <i class="fas fa-trash-alt"></i></a></div>
+                  
+                    @if(SessionClass.TipKorisnika=="A"){
                     <div><a asp-page="./SmestajIzmeni" asp-route-id="@smestaj.Id">Izmeni smestaj <i class="fas fa-edit"></i></a></div>
                     <div><a asp-page="./SmestajObrisi" asp-route-id="@smestaj.Id">Obriši smestaj <i class="fas fa-trash-alt"></i></a></div>
                     <div>@smestaj.Id</div>
-                    <div><a asp-page="./SobaSve" asp-route-id="@smestaj.Id">Prikazi sobe <i class="fas fa-trash-alt"></i></a></div>
                      <div><a asp-page="./SobaDodaj" asp-route-id="@smestaj.Id">Dodaj sobe <i class="fas fa-trash-alt"></i></a></div>
                       }
             </div>

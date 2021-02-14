@@ -1,0 +1,19 @@
+@page
+@model AMTravel.Pages.RezervacijaOtkaziModel
+@{
+    ViewData["Title"] = "Otkazi rezervaciju";
+}
+
+    <div class="brisi-ture fadeInDown">
+        <div id="formContent">
+            <form method="post">
+                <h5>Da li ste sigurni da zelite da otkazete rezervaciju ?</h5>
+
+                <button type="submit" class="btn btn-danger">Da</button>
+                <a asp-page="./RezervacijaSve">Ne</a>
+
+            </form>
+        </div>
+    </div>
+
+

@@ -51,8 +51,7 @@ namespace AMTravel.Pages
 
                 kolekcija.InsertOne(NovaSoba);
 
-                //  NovaSoba.Smestaj.Add(new MongoDBRef("smestaj", PostojiSmestaj.Id));
-                PostojiSmestaj.Sobe.Add(new MongoDBRef("soba", NovaSoba.Id));
+                   PostojiSmestaj.Sobe.Add(new MongoDBRef("soba", NovaSoba.Id));
                 NovaSoba.Smestaj = new MongoDBRef("smestaj", NoviId);
 
                

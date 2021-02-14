@@ -1,0 +1,30 @@
+@page
+@model AMTravel.Pages.SmestajObrisiModel
+@{
+     ViewData["Title"]="Brisanje destinacije";
+}
+   @if(SessionClass.TipKorisnika=="A"){
+<div class="brisi-ture fadeInDown">
+<div id="formContent">
+<form method="post">
+            <h5>Da li ste sigurni da želite da obrišete sledeći smestaj?</h5>
+           
+    <button type="submit" class="btn btn-danger">Da</button>
+    <a asp-page="./DestinacijaSve" >Ne</a>
+
+</form>
+</div>
+</div>
+   }
+ else{
+    <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Nemate pristup ovoj stranici, samo admin može da obriše znamenitost. <i class="fas fa-exclamation-triangle"></i></div> 
+}
+
+@if (Model.Provera == 1)
+{
+  <div class="prijava">
+   <div class="alert alert-danger" role="alert">
+     <i class="fas fa-exclamation-triangle"></i> Ne mozete da obrisete <i class="fas fa-exclamation-triangle"></i>
+   </div>
+ </div>
+}

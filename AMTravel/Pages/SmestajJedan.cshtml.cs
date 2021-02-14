@@ -10,19 +10,19 @@ using MongoDB.Driver;
 
 namespace AMTravel.Pages
 {
-    public class SobaJednaModel : PageModel
+    public class SmestajJedanModel : PageModel
     {
         [BindProperty]
-        public Soba TrenutnaSoba { get; set; }
+        public Smestaj TrenutniSmestaj{ get; set; }
          public ObjectId NoviId;
-        private IMongoCollection<Soba> kolekcija;
+        private IMongoCollection<Smestaj> kolekcija;
         public IActionResult OnGet(string id)
         {  
             MongoClient client = new MongoClient("mongodb://localhost:27017");
             IMongoDatabase db = client.GetDatabase("AMTravelDb");
-            kolekcija = db.GetCollection<Soba>("soba");
+            kolekcija = db.GetCollection<Smestaj>("smestaj");
             NoviId = ObjectId.Parse(id);
-            TrenutnaSoba= kolekcija.Find(x => x.Id==NoviId).FirstOrDefault();
+            TrenutniSmestaj= kolekcija.Find(x => x.Id==NoviId).FirstOrDefault();
 
             return Page();
         }

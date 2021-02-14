@@ -1,0 +1,16 @@
+@page
+@model AMTravel.Pages.SobaIzmeniModel
+@{
+}
+
+
+
+<form method="post">
+    <div class="izmeni">
+        <label class="form-control">Broj sobe: </label> <textarea asp-for="TrenutnaSoba.BrojSobe"></textarea>
+        <label class="form-control">Broj osoba:</label> <textarea asp-for="TrenutnaSoba.BrojOsoba"></textarea>
+        <label class="form-control">Opis:</label> <textarea asp-for="TrenutnaSoba.Opis"></textarea>
+        <label class="form-control">Cena:</label> <textarea asp-for="TrenutnaSoba.Cena"></textarea>
+        <button type="submit" class="btn-primary">Sačuvaj izmene</button>
+    </div>
+</form>

@@ -59,7 +59,12 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/DestinacijaSve">Destinacije</a>
+                                @if(SessionClass.TipKorisnika!=null)
+                                {
+                                     <a class="dropdown-item" href="/RezervacijaSve">Rezervacije</a>
+                                }
                             </div>
+                            
                         </li>
                     </ul>
                 </div>

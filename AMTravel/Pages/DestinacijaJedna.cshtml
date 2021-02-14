@@ -1,0 +1,18 @@
+@page
+@model AMTravel.Pages.DestinacijaJednaModel
+@{
+}
+<div class="containter">
+ <form method="get">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">@Model.TrenutnaDestinacija.Naziv</h6>
+                </div>
+                    <div><h4>Drzava:<label class="igraLabel">@Model.TrenutnaDestinacija.Drzava</label></h4></div>
+                    <div><h4>Opis:<label class="igraLabel">@Model.TrenutnaDestinacija.Opis</label></h4></div>
+                    <div style="position: center;">
+                    <img src="images/@Model.TrenutnaDestinacija.Slika" alt="Avatar" style="width: 100%;"> 
+                    </div>
+            </div>
+</form>
+</div>

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AMTravel.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace AMTravel.Pages
@@ -14,11 +15,18 @@ namespace AMTravel.Pages
        
 		[BindProperty]
         public Smestaj NoviSmestaj{get;set;}
+        public ObjectId NoviId;
 
         [BindProperty]
         public int? PostojiVec {get; set;}
         private IMongoCollection<Smestaj> kolekcija;
-        public IActionResult OnPost()
+        	[BindProperty]
+       public Destinacija PostojiDestinacija{get;set;}
+
+        private IMongoCollection<Destinacija> kolekcijaS;
+     
+
+        public IActionResult OnPost(string id)
         {
             if (!ModelState.IsValid)
             {
@@ -30,7 +38,10 @@ namespace AMTravel.Pages
                 MongoClient client = new MongoClient("mongodb://localhost:27017");
                 IMongoDatabase db = client.GetDatabase("AMTravelDb");
                 kolekcija = db.GetCollection<Smestaj>("smestaj");
-                Smestaj PostojiSmestaj = kolekcija.Find(x => x.Naziv == NoviSmestaj.Naziv).FirstOrDefault();
+                NoviId = ObjectId.Parse(id);
+                Smestaj PostojiSmestaj= kolekcija.Find(x => x.Naziv == NoviSmestaj.Naziv && x.Destinacija.Id==NoviId).FirstOrDefault();
+                kolekcijaS = db.GetCollection<Destinacija>("destinacija");
+                PostojiDestinacija = kolekcijaS.Find(x => x.Id == NoviId).FirstOrDefault();
 
                 if (PostojiSmestaj != null)
                 {
@@ -39,8 +50,14 @@ namespace AMTravel.Pages
                 }
 
                 kolekcija.InsertOne(NoviSmestaj);
-            
-                return RedirectToPage("./SmestajSve");
+
+                PostojiDestinacija.Smestaji.Add(new MongoDBRef("smestaj", NoviSmestaj.Id));
+                NoviSmestaj.Destinacija = new MongoDBRef("destinacija", NoviId);
+
+               
+                kolekcija.ReplaceOne(x=>x.Id==NoviSmestaj.Id, NoviSmestaj);
+                kolekcijaS.ReplaceOne(x=>x.Id==PostojiDestinacija.Id, PostojiDestinacija);
+                return RedirectToPage("./DestinacijaSve");
             }
         }
     }

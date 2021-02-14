@@ -4,15 +4,6 @@
 ViewData["Title"]="Novi smestaj";
 }
 
-<div class="text-center">
-    <h2 class="display 4">Novi smestaj</h2>
-</div>
-
-<nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" asp-page="./SmestajSve"><i class='fas fa-arrow-circle-left'></i>Prikaži listu smestaja</a></li>
-  </ul>
-</nav>
 
 @if(SessionClass.TipKorisnika=="A"){
 <form method="post">
@@ -20,7 +11,7 @@ ViewData["Title"]="Novi smestaj";
 
       @if (Model.PostojiVec != null && Model.PostojiVec != 0)
       {
-        <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Već postoji smestaj sa tim nazivom. <i class="fas fa-exclamation-triangle"></i></div>
+        <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Već postoji smestaj sa tim imenom. <i class="fas fa-exclamation-triangle"></i></div>
       }
 
     <div class="dodaj">
@@ -28,7 +19,7 @@ ViewData["Title"]="Novi smestaj";
         <label class="form-control">Naziv:</label> <input asp-for="NoviSmestaj.Naziv" class="form-control" placeholder="Naziv" required />
         <label class="form-control">Adresa:</label> <input asp-for="NoviSmestaj.Adresa" class="form-control" placeholder="Adresa" required />
         <label class="form-control">Opis:</label> <input asp-for="NoviSmestaj.Opis" class="form-control" placeholder="Opis" />
-        <label class="form-control">Tip:</label> <input asp-for="NoviSmestaj.Tip" class="form-control" placeholder="Tip" />
+         <label class="form-control">Tip:</label> <input asp-for="NoviSmestaj.Tip" class="form-control" placeholder="Opis" />
         <label class="form-control">Dodajte sliku:</label> <input type="file" asp-for="NoviSmestaj.Slika"  placeholder="Slika" required />
 
         <button type="submit" class="dugme">Dodaj novi smestaj</button>

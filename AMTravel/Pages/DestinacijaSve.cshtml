@@ -34,9 +34,12 @@ ViewData["Title"]="Destinacije";
             <div class="back-znamenitosti">
                     <div class="text-center"><h2>@destinacija.Naziv</h2></div>
                     <div><a asp-page="./DestinacijaJedna" asp-route-id="@destinacija.Id">Prikaži detalje <i class="fas fa-info-circle"></i></a></div>
+                     <div><a asp-page="./DestinacijaIzmeni" asp-route-id="@destinacija.Id">Izmeni destinaciju <i class="fas fa-edit"></i></a></div>
+                     <div><a asp-page="./SmestajSve" asp-route-id="@destinacija.Id">Prikaži sobe <i class="fas fa-trash-alt"></i></a></div>
                       @if(SessionClass.TipKorisnika=="A"){
-                    <div><a asp-page="./DestinacijaIzmeni" asp-route-id="@destinacija.Id">Izmeni destinaciju <i class="fas fa-edit"></i></a></div>
-                    <div><a asp-page="./DestinacijaObrisi" asp-route-id="@destinacija.Id">Obriši destinaciju <i class="fas fa-trash-alt"></i></a></div>
+                     <div><a asp-page="./DestinacijaObrisi" asp-route-id="@destinacija.Id">Obriši destinaciju <i class="fas fa-trash-alt"></i></a></div>
+                     
+                     <div><a asp-page="./SmestajDodaj" asp-route-id="@destinacija.Id">Dodaj smeštaj <i class="fas fa-trash-alt"></i></a></div>
                       }
             </div>
         </div>

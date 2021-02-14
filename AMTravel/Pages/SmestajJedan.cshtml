@@ -1,0 +1,19 @@
+@page
+@model AMTravel.Pages.SmestajJedanModel
+@{
+}
+<div class="containter">
+ <form method="get">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">@Model.TrenutniSmestaj.Naziv</h6>
+                </div>
+                    <div><h4>Adresa:<label class="igraLabel">@Model.TrenutniSmestaj.Adresa</label></h4></div>
+                   <div><h4>Tip:<label class="igraLabel">@Model.TrenutniSmestaj.Tip</label></h4></div>
+                    <div><h4>Opis:<label class="igraLabel">@Model.TrenutniSmestaj.Opis</label></h4></div>
+                    <div style="position: center;">
+                    <img src="images/@Model.TrenutniSmestaj.Slika" alt="Avatar" style="width: 100%;"> 
+                    </div>
+            </div>
+</form>
+</div>

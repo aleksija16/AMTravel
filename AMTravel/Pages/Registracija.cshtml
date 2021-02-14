@@ -3,24 +3,22 @@
 @{
 }
 
-<div class="registracija">
-    <div id="formContent">
-        <form method="post">
-            <input type="text" asp-for="NoviKorisnik.Ime" placeholder="Ime" required />
-            <input type="text" asp-for="NoviKorisnik.Prezime" placeholder="Prezime" required />
-            <input type="text" asp-for="NoviKorisnik.Broj" placeholder="Broj telefona" required />
-            <input type="text" asp-for="NoviKorisnik.Email" placeholder="Email" required />
-            <input type="text" asp-for="NoviKorisnik.Username" placeholder="Korisničko ime" required />
-            <input type="text" asp-for="NoviKorisnik.Password" placeholder="Lozinka" required />
-            <div style="margin: 8px;"><input type="submit" value="Registruj se" class="dugme" /> </div>
-
-            <div class="d-flex justify-content-center links">
-                <div>Imaš nalog? <a href="/Prijava">Prijavi se <i class="fas fa-sign-in-alt"></i></a></div>
-            </div>
-        </form>
+<form method="post">
+<div class="login-container">
+    <div class="login-form">
+        <input type="text" class="login-input" placeholder="Ime" asp-for="NoviKorisnik.Ime" required autofocus/>
+        <input type="text" class="login-input" placeholder="Prezime" asp-for="NoviKorisnik.Prezime" required />
+        <input type="text" class="login-input" placeholder="Broj telefona" asp-for="NoviKorisnik.Broj" required />
+        <input type="text" class="login-input" placeholder="Email" asp-for="NoviKorisnik.Email" required />
+        <input type="text" class="login-input" placeholder="Korisničko ime" asp-for="NoviKorisnik.Username" required />
+        <input type="password" class="login-input" placeholder="Lozinka" asp-for="NoviKorisnik.Password" required />
+        <div class="submit-container">
+            <input type="submit" value="Registruj se" class="login-button"/> 
+       </div>
     </div>
+    
 </div>
-
+</form>
 @if (Model.PostojiVec)
 {
     <div class="alert alert-danger" role="alert" style="text-align: center;"> <i class="fas fa-exclamation-triangle"></i> Korisnik sa tim korisničkim imenom već postoji. <i class="fas fa-exclamation-triangle"></i></div>
