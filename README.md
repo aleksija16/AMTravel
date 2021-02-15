@@ -1,3 +1,4 @@
+Baza: AMTravelDb
 
 Nakon kreiranja baze, potrebno je upisati podatke za admina.
 
