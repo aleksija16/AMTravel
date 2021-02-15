@@ -1,5 +1,6 @@
 
 Nakon kreiranja baze, potrebno je upisati podatke za admina.
+
 db.korisnik.insertOne({Username: "admin", Password: "admin", Tip:"A"})
 
 Verzije:
