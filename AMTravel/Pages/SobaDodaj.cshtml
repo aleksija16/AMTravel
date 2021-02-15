@@ -14,16 +14,17 @@ ViewData["Title"]="Nova soba";
         <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Već postoji soba sa tim brojem. <i class="fas fa-exclamation-triangle"></i></div>
       }
 
-    <div class="dodaj">
-        <div id="formContent">
-        <label class="form-control">Broj sobe:</label> <input asp-for="NovaSoba.BrojSobe" class="form-control" placeholder="Broj sobe" required />
-        <label class="form-control">Cena:</label> <input asp-for="NovaSoba.Cena" class="form-control" placeholder="Cena" required />
-        <label class="form-control">Broj osoba:</label> <input asp-for="NovaSoba.BrojOsoba" class="form-control" placeholder="Broj osoba" />
-        <label class="form-control">Opis:</label> <input asp-for="NovaSoba.Opis" class="form-control" placeholder="Opis" />
-        <label class="form-control">Dodajte sliku:</label> <input type="file" asp-for="NovaSoba.Slika"  placeholder="Slika" required />
-
-        <button type="submit" class="dugme">Dodaj novu sobu</button>
+    <div class="login-container">
+      <div class="login-form">
+        <input type="text" class="login-input" asp-for="NovaSoba.BrojSobe" placeholder="Broj sobe" required />
+        <input type="text" class="login-input" asp-for="NovaSoba.Cena" placeholder="Cena" required />
+        <input type="text" class="login-input" asp-for="NovaSoba.BrojOsoba" placeholder="Broj osoba" />
+        <input type="text" class="login-input" asp-for="NovaSoba.Opis" placeholder="Opis" />
+        <input type="text" class="login-input" type="file" asp-for="NovaSoba.Slika" placeholder="Slika" required />
+        <div class="submit-container">
+          <input type="submit" value="Dodaj novu sobu" class="login-button"/>
         </div>
+      </div>
     </div>
 </form>
 }

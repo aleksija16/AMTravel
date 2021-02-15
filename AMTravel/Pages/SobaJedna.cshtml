@@ -3,17 +3,18 @@
 @{
 }
 <div class="containter">
- <form method="get">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">@Model.TrenutnaSoba.BrojSobe</h6>
-                </div>
-                    <div><h4>Cena:<label class="igraLabel">@Model.TrenutnaSoba.Cena</label></h4></div>
-                   <div><h4>Kapacitet:<label class="igraLabel">@Model.TrenutnaSoba.BrojOsoba</label></h4></div>
-                    <div><h4>Opis:<label class="igraLabel">@Model.TrenutnaSoba.Opis</label></h4></div>
-                    <div style="position: center;">
-                    <img src="images/@Model.TrenutnaSoba.Slika" alt="Avatar" style="width: 100%;"> 
-                    </div>
+    <form method="get">
+        <div class="kartica">
+            <h1>@Model.TrenutnaSoba.BrojOsoba</h1>
+            <p>BROJ OSOBA: @Model.TrenutnaSoba.BrojOsoba</p>
+            <p>CENA: @Model.TrenutnaSoba.Cena</p>
+            <p>OPIS: @Model.TrenutnaSoba.Opis</p>
+           
+                <div style="background-color:rgba(0, 0, 0, 0.2); margin:2%;"><a asp-page="./RezervacijaDodaj" asp-route-id="@Model.TrenutnaSoba.Id">Rezerviši sobu <i class="far fa-calendar-plus"></i></a></div>
+            
+            <div style="position: center;">
+                <img src="images/@Model.TrenutnaSoba.Slika" alt="Avatar" style="width: 100%;"> 
             </div>
+          </div>
 </form>
 </div>

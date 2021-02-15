@@ -4,7 +4,8 @@
     ViewData["Title"] = "Rezervisi turu";
 }
 
-
+@if(SessionClass.TipKorisnika=="K")
+{
     <div class="rezervacija fadeInDown">
         <div id="formContent">
             <form method="post">
@@ -20,8 +21,15 @@
             </form>
         </div>
     </div>
+}
+else if(SessionClass.TipKorisnika=="A"){
+     <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Morate biti prijavljeni kao korisnik<i class="fas fa-exclamation-triangle"></i></div> 
 
+}
+else {
+      <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Niste prijavljeni, molimo vas prijavite se.<i class="fas fa-exclamation-triangle"></i></div> 
 
+}
 
 @if(@Model.NeuspesnaRezervacija==1){
      <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Datum do ne može biti manji od datuma od. <i class="fas fa-exclamation-triangle"></i></div> 

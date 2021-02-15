@@ -6,11 +6,15 @@
 
 
 <form method="post">
-    <div class="izmeni">
+     <div class="login-container">
+      <div class="login-form">
         <label class="form-control">Broj sobe: </label> <textarea asp-for="TrenutnaSoba.BrojSobe"></textarea>
         <label class="form-control">Broj osoba:</label> <textarea asp-for="TrenutnaSoba.BrojOsoba"></textarea>
         <label class="form-control">Opis:</label> <textarea asp-for="TrenutnaSoba.Opis"></textarea>
         <label class="form-control">Cena:</label> <textarea asp-for="TrenutnaSoba.Cena"></textarea>
-        <button type="submit" class="btn-primary">Sačuvaj izmene</button>
+        <div class="submit-container">
+          <input type="submit" value="Izmeni sobu" class="login-button"/>
+        </div>
+      </div>
     </div>
 </form>

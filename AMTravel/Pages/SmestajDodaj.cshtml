@@ -11,22 +11,24 @@ ViewData["Title"]="Novi smestaj";
 
       @if (Model.PostojiVec != null && Model.PostojiVec != 0)
       {
-        <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Već postoji smestaj sa tim imenom. <i class="fas fa-exclamation-triangle"></i></div>
+        <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Već postoji smeštaj sa tim imenom. <i class="fas fa-exclamation-triangle"></i></div>
       }
 
-    <div class="dodaj">
-        <div id="formContent">
-        <label class="form-control">Naziv:</label> <input asp-for="NoviSmestaj.Naziv" class="form-control" placeholder="Naziv" required />
-        <label class="form-control">Adresa:</label> <input asp-for="NoviSmestaj.Adresa" class="form-control" placeholder="Adresa" required />
-        <label class="form-control">Opis:</label> <input asp-for="NoviSmestaj.Opis" class="form-control" placeholder="Opis" />
-         <label class="form-control">Tip:</label> <input asp-for="NoviSmestaj.Tip" class="form-control" placeholder="Opis" />
-        <label class="form-control">Dodajte sliku:</label> <input type="file" asp-for="NoviSmestaj.Slika"  placeholder="Slika" required />
-
-        <button type="submit" class="dugme">Dodaj novi smestaj</button>
+    <div class="login-container">
+      <div class="login-form">
+        <input type="text" class="login-input" asp-for="NoviSmestaj.Naziv" placeholder="Naziv" required />
+        <input type="text" class="login-input" asp-for="NoviSmestaj.Adresa"  placeholder="Adresa" required />
+        <input type="text" class="login-input" asp-for="NoviSmestaj.Opis"  placeholder="Opis" />
+        <input type="text" class="login-input" asp-for="NoviSmestaj.Tip" placeholder="Tip" />
+        <input type="file" asp-for="NoviSmestaj.Slika"  placeholder="Slika" required />
+        <div class="submit-container">
+           <input type="submit" value="Dodaj novi smeštaj" class="login-button"/>
         </div>
+    </div>
     </div>
 </form>
 }
- else{
-    <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Nemate pristup ovoj stranici, samo admin može da dodaje znamenitosti. <i class="fas fa-exclamation-triangle"></i></div> 
-    }
+ else
+ {
+  <div class="alert alert-danger" role="alert" style="text-align: center;"><i class="fas fa-exclamation-triangle"></i> Nemate pristup ovoj stranici, samo admin može da dodaje znamenitosti. <i class="fas fa-exclamation-triangle"></i></div> 
+  }

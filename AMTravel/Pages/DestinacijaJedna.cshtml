@@ -2,17 +2,27 @@
 @model AMTravel.Pages.DestinacijaJednaModel
 @{
 }
+@if(SessionClass.TipKorisnika=="A")
+{
+<nav aria-label="Page navigation">  
+    <ul class="pagination justify-content-end">
+        <li class="page-item"><a class="page-link" asp-page="./DestinacijaIzmeni" asp-route-id="@Model.TrenutnaDestinacija.Id">Izmeni destinaciju <i class="fas fa-edit"></i></a></li>
+        <li class="page-item"><a class="page-link" asp-page="./SmestajDodaj" asp-route-id="@Model.TrenutnaDestinacija.Id">Dodaj smestaj <i class="fas fa-plus-circle"></i></a></li>
+        <li class="page-item"><a class="page-link" asp-page="./DestinacijaObrisi" asp-route-id="@Model.TrenutnaDestinacija.Id">Obriši destinaciju <i class="fas fa-plus-circle"></i></a></li>
+    </ul>
+</nav> 
+}
+
 <div class="containter">
  <form method="get">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">@Model.TrenutnaDestinacija.Naziv</h6>
+            <div class="kartica">
+                <h1>@Model.TrenutnaDestinacija.Naziv</h1>
+                <p>DRŽAVA: @Model.TrenutnaDestinacija.Drzava</p>
+                <p>OPIS: @Model.TrenutnaDestinacija.Opis</p>
+                <a asp-page="./SmestajSve" asp-route-id="@Model.TrenutnaDestinacija.Id">Prikaži <i class="fas fa-hotel"></i></a>
+                <div style="position: center;">
+                <img src="images/@Model.TrenutnaDestinacija.Slika" alt="Avatar" style="width: 100%;"> 
                 </div>
-                    <div><h4>Drzava:<label class="igraLabel">@Model.TrenutnaDestinacija.Drzava</label></h4></div>
-                    <div><h4>Opis:<label class="igraLabel">@Model.TrenutnaDestinacija.Opis</label></h4></div>
-                    <div style="position: center;">
-                    <img src="images/@Model.TrenutnaDestinacija.Slika" alt="Avatar" style="width: 100%;"> 
-                    </div>
             </div>
 </form>
 </div>

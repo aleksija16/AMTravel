@@ -36,10 +36,8 @@ namespace AMTravel.Pages
             ObjectId KorisnikId=ObjectId.Parse(SessionClass.SessionId);
             MojeRezervacije=kolekcija.Find(x=>x.Korisnik.Id==KorisnikId).ToList();
             }
-          
-           
-           
 
         }
+        
     }
 }

@@ -19,31 +19,33 @@ ViewData["Title"]="Destinacije";
 }
 
 <form method="post">
+<div> 
+    <select asp-for="IzabranaDrzava" asp-items="Model.SveDrzave" style="margin: 0 auto;">
+        <option >Prikaži sve</option>
+    </select>
+    <button type="submit" class="login-button">Prikaži</button>
+</div>
 <div class="row">
 @foreach (var destinacija in Model.SveDestinacije) 
 {
-     <div class="column">
-    <div class="flip-card-znamenitosti">
-        <div class="inner-znamenitosti">
-              <div class="front-znamenitosti">
-                @if(@destinacija.Slika!=null)
+    <div class="column">
+       <div class="card">
+           <div>
+               <a asp-page="./DestinacijaJedna" asp-route-id="@destinacija.Id">
+               @if(@destinacija.Slika!=null)
                 {
-                    <img src="images/@destinacija.Slika" alt="Avatar" style="width:300px;height:200px; border-radius: 50px 20px;  "> 
+                    <img src="images/@destinacija.Slika" alt="Avatar" style="width:300px;height:200px;"> 
                 }
+               </a> 
             </div>
-            <div class="back-znamenitosti">
-                    <div class="text-center"><h2>@destinacija.Naziv</h2></div>
-                    <div><a asp-page="./DestinacijaJedna" asp-route-id="@destinacija.Id">Prikaži detalje <i class="fas fa-info-circle"></i></a></div>
-                     <div><a asp-page="./DestinacijaIzmeni" asp-route-id="@destinacija.Id">Izmeni destinaciju <i class="fas fa-edit"></i></a></div>
-                     <div><a asp-page="./SmestajSve" asp-route-id="@destinacija.Id">Prikaži sobe <i class="fas fa-trash-alt"></i></a></div>
-                      @if(SessionClass.TipKorisnika=="A"){
-                     <div><a asp-page="./DestinacijaObrisi" asp-route-id="@destinacija.Id">Obriši destinaciju <i class="fas fa-trash-alt"></i></a></div>
-                     
-                     <div><a asp-page="./SmestajDodaj" asp-route-id="@destinacija.Id">Dodaj smeštaj <i class="fas fa-trash-alt"></i></a></div>
-                      }
-            </div>
+            <div class="text-center"><h2>@destinacija.Naziv</h2></div>
+               @if(SessionClass.TipKorisnika=="A")
+            {
+            <div><a asp-page="./DestinacijaIzmeni" asp-route-id="@destinacija.Id"><i class="fas fa-edit"></i></a>
+            <a asp-page="./DestinacijaObrisi" asp-route-id="@destinacija.Id"><i class="fas fa-trash-alt"></i></a>
+            <a asp-page="./SmestajDodaj" asp-route-id="@destinacija.Id"><i class="fas fa-plus-circle"></i></a></div>
+            } 
         </div>
-    </div>
     </div> 
 }
 </div>

@@ -28,7 +28,7 @@ namespace AMTravel.Pages
             if(SmestajBrisanje.Sobe.Count==0)
             {
             kolekcija.DeleteOne(x=> x.Id==SmestajBrisanje.Id);
-            return RedirectToPage("./SmestajSve");
+            return RedirectToPage("./SmestajSve", new{id=id});
             }
             else
             {

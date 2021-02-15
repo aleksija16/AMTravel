@@ -2,18 +2,29 @@
 @model AMTravel.Pages.SmestajJedanModel
 @{
 }
+
+@if(SessionClass.TipKorisnika=="A")
+{
+<nav aria-label="Page navigation">  
+    <ul class="pagination justify-content-end">
+        <li class="page-item"><a class="page-link" asp-page="./SmestajIzmeni" asp-route-id="@Model.TrenutniSmestaj.Id">Izmeni smeštaj <i class="fas fa-edit"></i></a></li>
+        <li class="page-item"><a class="page-link" asp-page="./SobaDodaj" asp-route-id="@Model.TrenutniSmestaj.Id">Dodaj sobu <i class="fas fa-plus-circle"></i></a></li>
+        <li class="page-item"><a class="page-link" asp-page="./SmestajObrisi" asp-route-id="@Model.TrenutniSmestaj.Id">Obriši smeštaj <i class="fas fa-plus-circle"></i></a></li>
+    </ul>
+</nav> 
+}
+
 <div class="containter">
- <form method="get">
-            <div class="card">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">@Model.TrenutniSmestaj.Naziv</h6>
-                </div>
-                    <div><h4>Adresa:<label class="igraLabel">@Model.TrenutniSmestaj.Adresa</label></h4></div>
-                   <div><h4>Tip:<label class="igraLabel">@Model.TrenutniSmestaj.Tip</label></h4></div>
-                    <div><h4>Opis:<label class="igraLabel">@Model.TrenutniSmestaj.Opis</label></h4></div>
-                    <div style="position: center;">
-                    <img src="images/@Model.TrenutniSmestaj.Slika" alt="Avatar" style="width: 100%;"> 
-                    </div>
-            </div>
-</form>
+  <form method="get">
+    <div class="kartica">
+      <h1>@Model.TrenutniSmestaj.Naziv</h1>
+      <p>ADRESA: @Model.TrenutniSmestaj.Adresa</p>
+      <p>TIP: @Model.TrenutniSmestaj.Tip</p>
+      <p>OPIS: @Model.TrenutniSmestaj.Opis</p>
+      <a asp-page="./SobaSve" asp-route-id="@Model.TrenutniSmestaj.Id">Prikaži <i class="fas fa-bed"></i></a>
+      <div style="position: center;">
+        <img src="images/@Model.TrenutniSmestaj.Slika" alt="Avatar" style="width: 100%;"> 
+      </div>
+    </div>
+  </form>
 </div>

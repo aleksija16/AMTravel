@@ -12,43 +12,36 @@ ViewData["Title"]="Sobe";
 @if(SessionClass.TipKorisnika=="A")
 {
 <nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" asp-page="./SobaDodaj" asp-route-id="@Model.SmestajId"><i class='fas fa-arrow-circle-left'></i>Dodaj</a></li>
+ <ul class="pagination justify-content-end">
+    <li class="page-item"><a class="page-link" asp-page="./SobaDodaj" asp-route-id="@Model.SmestajId">Dodaj sobu  <i class="fas fa-plus-circle"></i></a></li>
   </ul>
 </nav>
 }
-  <div>@Model.SmestajId</div>
-
 <form method="post">
 <div class="row">
 @foreach (var soba in Model.SveSobe) 
 {
-     <div class="column">
-    <div class="flip-card-znamenitosti">
-        <div class="inner-znamenitosti">
-              <div class="front-znamenitosti">
-                @if(@soba.Slika!=null)
-                {
-                    <img src="images/@soba.Slika" alt="Avatar" style="width:300px;height:200px; border-radius: 50px 20px;  "> 
-                }
-                  
-            </div>
-            <div class="back-znamenitosti">
-                    <div class="text-center"><h2>@soba.BrojSobe</h2></div>
-                    <div><a asp-page="./SobaJedna" asp-route-id="@soba.Id">Prikaži detalje <i class="fas fa-info-circle"></i></a></div>
-                    @if(SessionClass.TipKorisnika=="K")
-                    {
-                        <div><a asp-page="./RezervacijaDodaj" asp-route-id="@soba.Id">Rezerviši sobu <i class="far fa-calendar-plus"></i></a></div>
-                     
-                    }
-                    @if(SessionClass.TipKorisnika=="A"){
-                    <div><a asp-page="./SobaIzmeni" asp-route-id="@soba.Id">Izmeni sobu <i class="fas fa-edit"></i></a></div>
-                    <div>@Model.SmestajId</div>
-                      }
-            </div>
-        </div>
+  <div class="column">
+    <div class="card">
+      <div>
+        <a asp-page="./SobaJedna" asp-route-id="@soba.Id">
+          @if(@soba.Slika!=null)
+          {
+            <img src="images/@soba.Slika" alt="Avatar" style="width:300px;height:200px;"> 
+          }
+        </a>
+      </div>
+      <div class="text-center"><h2>@soba.BrojSobe</h2></div>
+      @if(SessionClass.TipKorisnika=="K")
+      {
+        <div><a asp-page="./RezervacijaDodaj" asp-route-id="@soba.Id">Rezerviši sobu <i class="far fa-calendar-plus"></i></a></div>
+      }
+      @if(SessionClass.TipKorisnika=="A")
+      {
+        <div><a asp-page="./SobaIzmeni" asp-route-id="@soba.Id"><i class="fas fa-edit"></i></a></div>
+      }
     </div>
-    </div> 
+  </div>
 }
 </div>
 </form>

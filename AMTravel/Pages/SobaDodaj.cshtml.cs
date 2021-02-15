@@ -57,7 +57,7 @@ namespace AMTravel.Pages
                
                 kolekcija.ReplaceOne(x=>x.Id==NovaSoba.Id, NovaSoba);
                 kolekcijaS.ReplaceOne(x=>x.Id==PostojiSmestaj.Id, PostojiSmestaj);
-                return RedirectToPage("./SmestajSve");
+                return RedirectToPage("./SobaSve", new{id=id});
             }
         }
     }

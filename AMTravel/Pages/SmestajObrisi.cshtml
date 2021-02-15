@@ -4,7 +4,7 @@
      ViewData["Title"]="Brisanje destinacije";
 }
    @if(SessionClass.TipKorisnika=="A"){
-<div class="brisi-ture fadeInDown">
+<div class="obrisi fadeInDown">
 <div id="formContent">
 <form method="post">
             <h5>Da li ste sigurni da želite da obrišete sledeći smestaj?</h5>
@@ -23,7 +23,7 @@
 @if (Model.Provera == 1)
 {
   <div class="prijava">
-   <div class="alert alert-danger" role="alert">
+   <div class="alert alert-danger" role="alert" style="text-align: center;" >
      <i class="fas fa-exclamation-triangle"></i> Ne mozete da obrisete <i class="fas fa-exclamation-triangle"></i>
    </div>
  </div>
